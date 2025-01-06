@@ -14,49 +14,42 @@ class Home extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Colors.amber[600],
     ),
-    body: Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
+    body: Row(
         children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Container(
-                  padding: EdgeInsets.all(20.0),
-                  color: Colors.green,
-                  child: Text('Row container'),
-                )
-              ],
+          Expanded(
+            flex: 2,
+            child: Image.asset('assets/images/image-2.jpg')
+          ),
+          //Expanded(
+          //  flex: 3,
+          //  child: Container(
+          //    padding: EdgeInsets.all(40.0),
+          //    color: Colors.blue,
+          //    child: Text('1'),
+          //  ),
+          //),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(40.0),
+              color: Colors.green,
+              child: Text('2'),
             ),
-            Container(
-              padding: EdgeInsets.all(80.0),
-              color: Colors.amber,
-              child: Text('Colum Container 1'),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(40.0),
+              color: Colors.red,
+              child: Text('3'),
             ),
-            Container(
-              padding: EdgeInsets.all(80.0),
-              color: Colors.cyan,
-              child: Text('Colum Container  2'),
-            ),
-            Container(
-              padding: EdgeInsets.all(80.0),
-              color: Colors.purple,
-              child: Text(
-                'Colum Container  3',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
+          ),
         ],
       ),
-    ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {},
       backgroundColor: Colors.amber[600],
-      child: Text('click'),
+      child: Text(':-)'),
     ),
   );
   }
