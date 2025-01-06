@@ -1,0 +1,6 @@
+/* CSS HEX */
+--carmine: #931f1dff;
+--chamoisee: #937b63ff;
+--moss-green: #8a9b68ff;
+--sage: #b6c197ff;
+--beige: #d5ddbcff;
