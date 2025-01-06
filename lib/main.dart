@@ -14,45 +14,18 @@ class Home extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Colors.amber[600],
     ),
-    body: Center(
-// Comment all other childs in the Center widget before uncommenting a child
-
-//        child: IconButton(
-//          onPressed: () {
-//            print('You clicked Me!'); // This will be visible in the console
-//          },
-//          icon: Icon(
-//            Icons.alternate_email,
-//            color: Colors.black,
-//          )
-//        ),
-//        child: ElevatedButton.icon(
-//          onPressed: () {}, 
-//          style: ButtonStyle(
-//            backgroundColor: WidgetStatePropertyAll(Colors.amber[600]),
-//            foregroundColor: WidgetStatePropertyAll(Colors.black),
-//          ),
-//          icon: Icon(
-//            Icons.mail,
-//            color: Colors.black,
-//          ),
-//          label: Text('Mail Me :)'),
-//        ),
-//        child: ElevatedButton(
-//          onPressed: () {
-//            print('You clicked Me!'); // This will be visible in the console
-//          },
-//          style: ButtonStyle(
-//            backgroundColor: WidgetStatePropertyAll(Colors.amber[600]),
-//            foregroundColor: WidgetStatePropertyAll(Colors.black),
-//          ),
-//          child: Text('This is an ElevatedButton'),
-//        ),
-//        child: Icon(
-//          Icons.airport_shuttle,
-//          color: Colors.amber[600],
-//          size: 50.0,
-//        )
+    body: Padding(
+      // Wrapping inside a padding widget will help to add padding to any widget
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+          // padding adds spacing inside and margin adds for outside
+          padding: EdgeInsets.all(20.0), // Adds padding to all 4 corners
+          //padding: EdgeInsets.fromLTRB(10, 15, 20, 25), // Adds padding sperately to left, top, right, bottom
+          //padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15), // Adds pddings sperately to horizontal and vertical sides
+          margin: EdgeInsets.all(10.0),
+          color: Colors.amber[200],
+          child: Text('This Text is inside a  Container'),
+        ),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {},
