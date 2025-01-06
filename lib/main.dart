@@ -15,16 +15,7 @@ class Home extends StatelessWidget {
       backgroundColor: Colors.amber[600],
     ),
     body: Center(
-      child: Text(
-        'Hello Fellow Flocks!',
-        style: TextStyle(
-          fontSize: 20.0,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 2,
-          color: Colors.grey[600],
-          fontFamily: 'SourceSans3',
-        ),
-      ),
+        child: Image.asset('assets/images/image-2.jpg'),
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {},
