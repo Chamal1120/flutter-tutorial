@@ -1,124 +1,66 @@
+import 'package:first_app/quote.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: NinjaCard()));
+void main() => runApp(MaterialApp(home: QuoteList() ));
 
-class NinjaCard extends StatefulWidget {
-  const NinjaCard({super.key});
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
 
   @override
-  State<NinjaCard> createState() => _NinjaCardState();
+  State<QuoteList> createState() => _QuoteListState();
 }
 
-class _NinjaCardState extends State<NinjaCard> {
-  int ninjaLevel = 0;
+class _QuoteListState extends State<QuoteList> {
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[900],
-      appBar: AppBar(
-        title: Text(
-          'Ninja ID Card',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.grey[850],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            ninjaLevel += 1;
-          });
-        },
-        backgroundColor: Colors.grey[800],
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+  List<Quote> quotes = [
+    Quote(author: 'Chamal', text: 'This is a Quote'),
+    Quote(author: 'Chanu', text: 'This is another Quote'),
+    Quote(author: 'Pabba', text: 'This is also another Quote'),
+  ];
+
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/images/hotarou.jpg'),
-                radius: 60.0,
-              ),
-            ),
-            Divider(
-              height: 60.0,
-              color: Colors.grey[800],
-            ),
             Text(
-              'NAME:',
+              quote.text,
               style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2,
+                fontSize: 18.0,
+                color: Colors.grey[600],
               ),
             ),
             SizedBox(
               height: 10.0,
             ),
             Text(
-              'Chamal Randika',
+              quote.author,
               style: TextStyle(
-                color: Colors.amber[200],
-                letterSpacing: 2,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
+                fontSize: 14.0,
+                color: Colors.grey[800],
               ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Text(
-              'CURRENT NINJA LEVEL:',
-              style: TextStyle(
-                color: Colors.grey,
-                letterSpacing: 2,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              '$ninjaLevel',
-              style: TextStyle(
-                color: Colors.amber[200],
-                letterSpacing: 2,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 30.0,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.email,
-                  color: Colors.grey[400],
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text(
-                  'chamal@cooldomain.ninja',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 18,
-                    letterSpacing: 1.0,
-                  ),
-                )
-              ],
             )
           ],
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      appBar: AppBar(
+        title: Text('Awesome Quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+      ),
+      body: Column(
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+      )
     );
   }
 }
