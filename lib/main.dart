@@ -1,7 +1,8 @@
 import 'package:first_app/quote.dart';
+import 'package:first_app/quote_card.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: QuoteList() ));
+void main() => runApp(MaterialApp(home: QuoteList()));
 
 class QuoteList extends StatefulWidget {
   const QuoteList({super.key});
@@ -11,43 +12,11 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-
   List<Quote> quotes = [
     Quote(author: 'Chamal', text: 'This is a Quote'),
     Quote(author: 'Chanu', text: 'This is another Quote'),
     Quote(author: 'Pabba', text: 'This is also another Quote'),
   ];
-
-  Widget quoteTemplate(quote) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              quote.text,
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.grey[600],
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              quote.author,
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey[800],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,8 +28,16 @@ class _QuoteListState extends State<QuoteList> {
         backgroundColor: Colors.redAccent,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
-      )
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: () {
+            setState(() {
+              quotes.remove(quote);
+            });
+          }
+        )).toList(),
+      ),
     );
   }
 }
+
